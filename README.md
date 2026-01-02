@@ -63,6 +63,8 @@ make SM=86   # Ampere consumer GPUs
 make SM=90   # Hopper
 ```
 
+See `build-notes.md` for more more details of available build options.
+
 ---
 
 ## Usage
