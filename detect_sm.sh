@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Tooling guard: nvidia-smi is required for this script
 if ! command -v nvidia-smi >/dev/null 2>&1
 then
   echo "nvidia-smi not found. Is the NVIDIA driver installed?"
@@ -13,6 +14,7 @@ echo
 sms=()
 majors=()
 
+# Use process substitution, rather than sub-shell semantics
 while IFS=',' read -r idx name cap
 do
   name=$(echo "$name" | xargs)
@@ -43,6 +45,16 @@ done < <(
     --format=csv,noheader
 )
 
+# Regression guard: ensure GPU detection populated SM list
+if (( ${#sms[@]} == 0 ))
+then
+  echo "ERROR: No SM values collected from GPU detection."
+  echo "This usually indicates a shell scoping issue (e.g., loop ran in a subshell)."
+  echo "Please verify that process substitution is being used instead of a pipe."
+  exit 1
+fi
+
+# Determine final output
 if (( ${#sms[@]} > 1 ))
 then
   IFS=$'\n' sorted_sms=($(sort -n <<<"${sms[*]}"))
