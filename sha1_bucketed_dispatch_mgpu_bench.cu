@@ -50,7 +50,6 @@
 
 #define CUDA_CHECK(x) do { \
   cudaError_t err = (x); \
-
   if (err != cudaSuccess) { \
     std::cerr << cudaGetErrorString(err) << "\n"; \
     std::exit(1); \
