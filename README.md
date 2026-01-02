@@ -136,25 +136,6 @@ Output format:
 
 ---
 
-### Benchmark mode
-
-```bash
-./sha1_bucketed_dispatch_bench input.txt --bench
-```
-
-Example output:
-
-```
-[GPU 0][len=6]  430012345 H/s
-[GPU 1][len=6]  428901234 H/s
-[len=6] TOTAL: 858913579 H/s
-```
-
-Timing uses CUDA events and measures kernel execution only
-(no file I/O, no memory allocation, no printing).
-
----
-
 ### Multi-GPU selection
 
 Use a specific GPU:
@@ -182,6 +163,22 @@ If `--gpu` is omitted, GPU 0 is used by default.
 # Benchmark Methodology Notes
 
 Benchmarking GPU code is deceptively easy to do incorrectly. This project includes a simple benchmarking mode intended for comparative research and sanity checking, not marketing-grade performance claims.
+
+## Benchmark mode
+
+```bash
+./sha1_bucketed_dispatch_bench input.txt --bench
+```
+
+Example output:
+
+```
+[GPU 0][len=6]  430012345 H/s
+[GPU 1][len=6]  428901234 H/s
+[len=6] TOTAL:  858913579 H/s
+```
+
+Timing uses CUDA events and measures kernel execution only (no file I/O, no memory allocation, no printing).
 
 ## What the benchmark measures
 
@@ -236,11 +233,11 @@ Some natural extensions that fit this codebase well:
 * NUMA-aware CPU↔GPU affinity
 * Multi-stream overlap of transfer and compute
 
-These are intentionally not implemented yet.
+These are intentionally not implemented (yet).
 
 ---
 
-## Security Note
+# Security Note
 
 This code is provided for research and educational purposes only.
 
@@ -248,7 +245,7 @@ SHA-1 is cryptographically broken since the early 2000's and should not be used 
 
 ---
 
-## Closing Thoughts
+# Closing Thoughts
 
 This project is meant to be interesting to read, safe to modify, and fast enough to matter.
 
@@ -256,14 +253,20 @@ If it helps you learn something, test an idea, or ask better questions — then 
 
 Comments, suggestions, and constructive critique are welcome.
 
+---
+
 # License
 
 This tool is released under the Apache 2.0 license. See the LICENSE file in this repo for details.
+
+---
 
 # Built With
 
 * [nVidia CUDA](https://developer.nvidia.com/cuda-downloads)
 
+---
+
 ## Author
 
-**Rick Pelletier** - [Gannett Co., Inc. (USA Today Network)](https://www.usatoday.com/)
+**Rick Pelletier** - [USAToday Company, Inc. (USA Today Network)](https://www.usatoday.com/)
