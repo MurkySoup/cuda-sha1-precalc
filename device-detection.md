@@ -51,10 +51,18 @@ Recommended portable build:
 ```
 
 ```yaml
+GPU 0: NVIDIA GeForce RTX 3060
+  Compute Capability: 8.6
+  Individual build: make SM=86
+
+GPU 1: NVIDIA GeForce RTX 2060
+  Compute Capability: 7.5
+  Individual build: make SM=75
+
 Multiple GPUs detected.
-Highest common supported SM: 70
+Highest common supported SM: 75
 Recommended portable build:
-  make SM=70
+  make SM=75
 
 ⚠️  Architecture diversity warning:
    Detected GPUs span multiple major SM versions: 7 9
