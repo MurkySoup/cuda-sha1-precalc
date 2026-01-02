@@ -186,10 +186,9 @@ If it helps you learn something, test an idea, or ask better questions — then 
 
 Comments, suggestions, and constructive critique are welcome.
 
-
 # License
 
-This tool is released under the MIT license. See the LICENSE file in this repo for details.
+This tool is released under the Apache 2.0 license. See the LICENSE file in this repo for details.
 
 # Built With
 
