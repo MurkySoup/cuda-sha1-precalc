@@ -207,17 +207,12 @@ Those tools optimize under very different constraints and conditions.
 
 ## Common benchmarking pitfalls (and how we avoid them)
 
-❌ Comparing different input distributions
-✔ Inputs are fixed and repeatable
-
-❌ Measuring compilation-time specialization as runtime performance
-✔ Kernel specialization is explicit and documented
-
-❌ Ignoring GPU warm-up effects
-✔ Benchmarks run multiple iterations
-
-❌ Overlooking mixed-architecture systems
-✔ SM detection warns about heterogeneous GPUs
+| Rookie Mistake                                                   | Pro Design Tip                                   |
+|------------------------------------------------------------------|--------------------------------------------------|
+| Comparing different input distributions                          | Inputs are fixed and repeatable                  |
+| Measuring compilation-time specialization as runtime performance | Kernel specialization is explicit and documented |
+| Ignoring GPU warm-up effects                                     | Benchmarks run multiple iterations               |
+| Overlooking mixed-architecture systems                           | SM detection warns about heterogeneous GPUs      |
 
 ## Recommended benchmarking practices
 
